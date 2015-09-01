@@ -429,10 +429,16 @@
 
             var mapOptions = {
                 // How zoomed in you want the map to start at (always required)
-                zoom: 11,
+                zoom: 12,
 
                 // The latitude and longitude to center the map (always required)
                 center: myCenter,
+
+                // Disable default controls
+                disableDefaultUI: true,
+
+                // Map Types: ROADMAP (default), SATELLITE, HYBRID, TERRAIN
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
 
                 // How you would like to style the map.
                 // This is where you would paste any style found on Snazzy Maps.
@@ -445,6 +451,22 @@
 
             // Create the Google Map using out element and options defined above
             var map = new google.maps.Map(mapElement, mapOptions);
+
+            // Reset map to center
+            var marker = new google.maps.Marker({
+                position: myCenter,
+                title:'Click to zoom',
+                icon: 'blank.png'
+            });
+
+            marker.setMap(map);
+
+            google.maps.event.addListener(map,'center_changed',function() {
+            // 3 seconds after the center of the map has changed, pan back to the marker
+                window.setTimeout(function() {
+                    map.panTo(marker.getPosition());
+                },4000);
+            });
         }
     </script>
   </body>
