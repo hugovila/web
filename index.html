@@ -407,7 +407,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJxl9nbMN581Ci687Tbonot3pEMOLgCSI&sensor=false"></script>
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/fancybox/jquery.fancybox.pack.js"></script>
@@ -425,12 +425,14 @@
         function init() {
             // Basic options for a simple Google Map
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+            var myCenter = new google.maps.LatLng(39.4698, -0.3769); // Valencia
+
             var mapOptions = {
                 // How zoomed in you want the map to start at (always required)
                 zoom: 11,
 
                 // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(40.6700, -73.9400), // New York
+                center: myCenter,
 
                 // How you would like to style the map.
                 // This is where you would paste any style found on Snazzy Maps.
